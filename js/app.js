@@ -1,10 +1,13 @@
+// calculatin price for extra cost
 function extraCost(variant, cost) {
     document.getElementById(variant).innerText = cost;
-    // update price
-    document.getElementById('total-price').innerText = updatePrice();
-    document.getElementById('price-center').innerText = updatePrice();
+    // update total price
+    document.getElementById('total-price').innerText = calculateTotalPrice();
+    document.getElementById('price-center').innerText = calculateTotalPrice();
 }
-function updatePrice() {
+
+// calulating total price
+function calculateTotalPrice() {
     const memoryCostText = document.getElementById('memory-cost').innerText;
     const memoryCostPrice = parseInt(memoryCostText);
     const storageCostText = document.getElementById('storage-cost').innerText;
@@ -14,6 +17,8 @@ function updatePrice() {
     const totalPrice = 1299 + memoryCostPrice + storageCostPrice + deliveryCharge;
     return totalPrice;
 }
+
+// updated price usting promo code
 function addPromoCode() {
     const promoInput = document.getElementById('promo-input');
     let totalPriceText = document.getElementById('price-center');
@@ -25,6 +30,7 @@ function addPromoCode() {
         document.getElementById('promo-btn').disabled = true;
     }
 }
+
 // extra memory cost
 document.getElementById('memory').addEventListener('click', function (e) {
     const id = e.target.getAttribute('id');
@@ -55,6 +61,7 @@ document.getElementById('storage').addEventListener('click', function (e) {
         document.getElementById('promo-btn').disabled = false;
     }
 })
+
 // delivery charge
 document.getElementById('delivery').addEventListener('click', function (e) {
     const id = e.target.getAttribute('id');
