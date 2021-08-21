@@ -2,6 +2,7 @@ function extraCost(variant, cost) {
     document.getElementById(variant).innerText = cost;
     // update price
     document.getElementById('total-price').innerText = updatePrice();
+    document.getElementById('center-price').innerText = updatePrice();
 }
 function updatePrice() {
     const memoryCostText = document.getElementById('memory-cost').innerText;
